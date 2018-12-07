@@ -45,7 +45,8 @@ with open(result_txt_path, mode='w', newline='') as summary_txt:
         ["-" * 50],
         [f"Total Votes: {total_votes}"],
         ["-"*50],
-        [f"{key}: {votes_percent[key]}00% ({candidates_votes[key]})"],
+        key,value in candidates_votes.items()
+            [f"{key}: {votes_percent[key]}00% ({candidates_votes[key]})"],
         ["-"*50],
         [f"Winner: {Winner}"],
         ["-"*50]
