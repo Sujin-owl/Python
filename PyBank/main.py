@@ -52,7 +52,7 @@ with open(result_txt_path, mode='w', newline='') as summary_txt:
         ["-" * 50],
         [f"Total Months: {total_months}"],
         [f"Total: ${total_revenue}"],
-        [f"Average Change: ${average_change}"]
+        [f"Average Change: ${average_change}"],
         [f"Greatest Increase in Profits: {date[index1]} (${greatest_increase})"],
         [f"Greatest Decrease in Profits: {date[index2]} (${greatest_decrease})"]
     ])
