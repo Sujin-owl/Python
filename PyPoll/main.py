@@ -2,7 +2,7 @@ import os
 import csv
 
 election_csv_path = os.path.join("election_data.csv")
-result_txt_path = os.path.join("results.txt")
+file_output = "results.txt"
 
 print("Election Analysis")
 print("-"*50)
@@ -37,18 +37,14 @@ for key,value in candidates_votes.items():
 print("-"*50)
 print(f"Winner: {Winner}")
 print("-"*50)
-with open(result_txt_path, mode='w', newline='') as summary_txt:
-    writer = csv.writer(summary_txt)
 
-    writer.writerows([
-        ["Electron Analysis for: " + election_csv_path],
-        ["-" * 50],
-        [f"Total Votes: {total_votes}"],
-        ["-"*50],
-        key,value in candidates_votes.items()
-            [f"{key}: {votes_percent[key]}00% ({candidates_votes[key]})"],
-        ["-"*50],
-        [f"Winner: {Winner}"],
-        ["-"*50]
-        
-    ])
+with open(file_output, 'w') as file:
+    file.write("Election Results \n")
+    file.write("------------------------------------- \n")
+    file.write("Total Votes: " + str(total_votes) + "\n")
+    file.write("------------------------------------- \n")
+    for key, value in candidates_votes.items():
+        file.write(key + ": " + str(votes_percent[key]) + "00% (" + str(value) + ") \n")
+    file.write("------------------------------------- \n")
+    file.write("Winner: " + Winner + "\n")
+    file.write("------------------------------------- \n")
